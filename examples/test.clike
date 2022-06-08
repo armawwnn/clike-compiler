@@ -1,0 +1,24 @@
+#define test
+int test;
+int main(){
+}
+test {1,2,3,4}
+if (1){
+    return 0;
+}else{
+    return 1;
+}
+do{
+}while(t == 2)
+int a = 0;
+a +=10;
+a-=1;
+a*=2;
+a/=2;
+a++;
+a--;
+a %= 3;
+if (a!=10 || b<2 ){
+}
+if(a>=2 && b <=1){
+}
