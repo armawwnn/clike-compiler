@@ -1,8 +1,8 @@
-#include "include/clike.h"
-#include "include/lexer.h"
+#include "clike.h"
+#include "lexer.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "include/io.h"
+#include "io.h"
 
 void clike_compile(char*src){
     lexer_c * lexer = init_lexer(src);
