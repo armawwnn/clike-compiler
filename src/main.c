@@ -1,4 +1,4 @@
-//__author__ = "Mehdi Mehran , Ali Sadeghi , Erfan Moghadasian , Paniz Falahati nezhad
+//__author__ = ali sadeghi
 #include "include/clike.h"
 #include <stdio.h>
 
