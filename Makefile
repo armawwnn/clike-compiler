@@ -12,6 +12,7 @@ $(exec): $(objects)
 clean:
 	-rm *.out
 	-rm *.o
+	-rm src/*.o
 	-rm *.a
 	-rm src/*.out
 lint:

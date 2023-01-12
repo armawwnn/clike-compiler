@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "token.h"
+#include "include/token.h"
 
 token_c* init_token(char* value,int type){
     token_c* token = calloc(1,sizeof (struct TOKEN_STRUCT));

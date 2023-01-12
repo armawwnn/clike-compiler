@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "lexer.h"
-#include "macros.h"
+#include "include/lexer.h"
+#include "include/macros.h"
 
 lexer_c* init_lexer(char * src){
     lexer_c * lexer = calloc(1,sizeof (struct LEXER_STRUCT));
