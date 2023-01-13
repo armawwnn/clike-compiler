@@ -5,10 +5,15 @@ typedef struct AST_STRUCT
 {
     enum
     {
-
+        AST_COMPUND,
+        AST_FUNCTION_DDEFENISION,
+        AST_DEFENITION_TYPE,
+        AST_VARIABLE,
+        AST_STATMENT,
+        AST_NOOP,
     } type;
 
-} AST_T;
+} AST_c;
 
-AST_T* init_ast(int type);
+AST_c* init_ast(int type);
 #endif

@@ -11,7 +11,7 @@ token_c* init_token(char* value,int type){
     return token;
 }
 
-static const char* token_type_to_string(int type){
+const char* token_type_to_string(int type){
     switch (type) {
         case TOKEN_ID:return "TOKEN_ID";
         case TOKEN_EQUALS:return "TOKEN_EQUALS";

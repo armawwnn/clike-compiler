@@ -11,8 +11,9 @@ typedef struct PARSER_STRUCT
 } parser_c;
 
 parser_c* init_parser(lexer_c* lexer);
-token_c* parser_advance(parser_c* parser);
+token_c* parser_eat(parser_c* parser,int type);
 AST_c* parser_parse(parser_c* parser);
+AST_c* parser_parse_compound(parser_c* parser);
 
 
 #endif
