@@ -30,11 +30,11 @@ AST_c* parser_parse(parser_c* parser)
 
 AST_c* parser_parse_compound(parser_c* parser)
 {
-//    AST_T* compound = init_ast(AST_COMPOUND);
+    AST_c* compound = init_ast(AST_COMPOUND);
     while(parser->token->type != TOKEN_EOF)
     {
-        /*AST_T* child = */parser_parse(parser);
+        list_push(compound->children,parser_parse(parser));
     }
-    return init_ast(AST_NOOP);
+    return compound;
 
 }
