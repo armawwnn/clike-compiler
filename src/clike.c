@@ -10,7 +10,6 @@ void clike_compile(char*src){
     parser_c* parser = init_parser(lexer);
     AST_c* root = parser_parse(parser);
 
-    printf("%d/n",root->children->size);
 
     token_c * tok = 0;
     while ((tok = lexer_next_token(lexer))->type != TOKEN_EOF){
