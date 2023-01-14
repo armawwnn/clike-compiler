@@ -37,8 +37,4 @@ enum{
 token_c* init_token(char * value,int type);
 
 char* token_to_string(token_c* token);
-<<<<<<< HEAD
 #endif
-=======
-#endif
->>>>>>> parent of e5778b8 (include)

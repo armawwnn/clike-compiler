@@ -1,7 +1,7 @@
 #ifndef CLIKE_LEXER_H
 #define CLIKE_LEXER_H
-#include "token.h"
 #include <stdio.h>
+#include "token.h"
 
 typedef struct LEXER_STRUCT{
     char * src;
