@@ -15,5 +15,6 @@ token_c* parser_eat(parser_c* parser,int type);
 AST_c* parser_parse(parser_c* parser);
 AST_c* parser_parse_compound(parser_c* parser);
 
+AST_c* parser_parse_exp(parser_c* parser);
 
 #endif

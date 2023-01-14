@@ -33,7 +33,20 @@ AST_c* parser_parse_id(parser_c* parser)
     strcpy(value,parser->token->value);
     parser_eat(parser,TOKEN_ID);
 
-    printf("-->%s\n",value);
+   if (parser->token->type == TOKEN_EQUALS) 
+   {
+       // parse ==
+       parser_eat(parser,TOKEN_EQUALS);
+       AST_c* ast = init_ast(AST_ASSIGNMENT);
+       ast->name = value;
+       printf("%s\n",ast->name);
+       ast->value = parser_parse_exp(parser);
+       return ast;
+   }
+       //parse var
+   AST_c* ast = init_ast(AST_VARIABLE);
+   ast->name = value;
+   return ast;
 }
 
 AST_c* parser_parse_exp(parser_c* parser)
