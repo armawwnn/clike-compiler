@@ -13,7 +13,6 @@ clean:
 	-rm *.out
 	-rm src/*.o
 	-rm *.a
-	-rm src/*.out
 lint:
 	clang-tidy src/*.c src/include/*.h
 

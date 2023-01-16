@@ -9,7 +9,6 @@ list_c* init_list(size_t item_size)
     list->item_size = item_size;
     list->items = 0;
     
-
     return list;
 }
 

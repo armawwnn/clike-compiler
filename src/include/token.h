@@ -2,7 +2,7 @@
 #define CLIKE_TOKEN_H
 typedef struct TOKEN_STRUCT
 {
-char * value;
+char* value;
 enum{
     TOKEN_ID,
     TOKEN_EQUALS,

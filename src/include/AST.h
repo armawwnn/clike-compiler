@@ -18,6 +18,7 @@ typedef struct AST_STRUCT
   list_c* children;
   char* name;
   struct AST_STRUCT* value;
+  int data_type;
 } AST_c;
 
 AST_c* init_ast(int type);

@@ -11,6 +11,7 @@ lexer_c* init_lexer(char * src){
     lexer->src_size = strlen(src);
     lexer->i = 0;
     lexer->c = src[lexer->i];
+    
 
     return lexer;
 }
@@ -32,7 +33,7 @@ token_c * lexer_advance_current(lexer_c* lexer,int type) {
     value[0] = lexer->c;
     value[1] = '\0';
 
-    token_c * token = init_token(value,type);
+    token_c* token = init_token(value,type);
     lexer_advance(lexer);
     return token;
 
@@ -66,7 +67,7 @@ token_c * lexer_next_token(lexer_c* lexer){
 
         lexer_skip_whitespace(lexer);
             if(isalpha(lexer->c))
-            return lexer_advance_with(lexer,lexer_parse_id(lexer));
+            return lexer_parse_id(lexer);
 
             if(isdigit(lexer->c))
                 return lexer_advance_with(lexer, lexer_parse_number(lexer));

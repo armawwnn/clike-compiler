@@ -1,4 +1,5 @@
 #include "include/parser.h"
+#include "include/types.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -33,27 +34,79 @@ AST_c* parser_parse_id(parser_c* parser)
     strcpy(value,parser->token->value);
     parser_eat(parser,TOKEN_ID);
 
+       //parse var
+   AST_c* ast = init_ast(AST_VARIABLE);
+   ast->name = value;
+
+   if (parser->token->type == TOKEN_ID)
+   {
+       parser_eat(parser,TOKEN_ID);
+
+       while(parser->token->type == TOKEN_ID)
+       {
+       ast->data_type = typename_to_int(parser->token->value);
+       parser_eat(parser,TOKEN_ID);
+       }
+
+   }
+
+
    if (parser->token->type == TOKEN_EQUALS) 
    {
        // parse ==
        parser_eat(parser,TOKEN_EQUALS);
        AST_c* ast = init_ast(AST_ASSIGNMENT);
        ast->name = value;
-       printf("%s\n",ast->name);
+
+
+
        ast->value = parser_parse_exp(parser);
        return ast;
    }
-       //parse var
-   AST_c* ast = init_ast(AST_VARIABLE);
-   ast->name = value;
+
    return ast;
 }
 
+
+
+AST_c* parser_parse_list(parser_c* parser)
+{
+    parser_eat(parser,TOKEN_LPAREN);
+    AST_c* ast = init_ast(AST_COMPOUND);
+
+
+    list_push(ast->children,parser_parse_exp(parser));
+
+    while(parser->token->type == TOKEN_COMMA)
+    {
+        parser_eat(parser,TOKEN_COMMA);
+        list_push(ast->children,parser_parse_exp(parser));
+    }
+
+    parser_eat(parser,TOKEN_RPAREN);
+
+ if (parser->token->type == TOKEN_ID)
+   {
+       parser_eat(parser,TOKEN_ID);
+
+       while(parser->token->type == TOKEN_ID)
+       {
+       ast->data_type = typename_to_int(parser->token->value);
+       parser_eat(parser,TOKEN_ID);
+       }
+
+   }
+
+
+    return ast;
+
+}
 AST_c* parser_parse_exp(parser_c* parser)
 {
     switch (parser->token->type)
     {
         case TOKEN_ID : return parser_parse_id(parser);
+        case TOKEN_LPAREN : return parser_parse_list(parser);
         default:{ printf("[parser]: unexpected token `%s`\n",token_to_string(parser->token)); exit(1);};
     }
 }

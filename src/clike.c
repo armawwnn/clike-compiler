@@ -10,7 +10,6 @@ void clike_compile(char*src){
     parser_c* parser = init_parser(lexer);
     AST_c* root = parser_parse(parser);
 
-
     token_c * tok = 0;
     while ((tok = lexer_next_token(lexer))->type != TOKEN_EOF){
         printf("%s\n", token_to_string(tok));
@@ -23,3 +22,4 @@ void clike_compile_file(const char* filename){
     clike_compile(src);
     free(src);
 }
+
