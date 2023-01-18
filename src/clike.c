@@ -6,11 +6,11 @@
 #include "io.h"
 
 void clike_compile(char*src){
-    lexer_c * lexer = init_lexer(src);
+    lexer_c* lexer = init_lexer(src);
     parser_c* parser = init_parser(lexer);
     AST_c* root = parser_parse(parser);
 
-    token_c * tok = 0;
+    token_c* tok = 0;
     while ((tok = lexer_next_token(lexer))->type != TOKEN_EOF){
         printf("%s\n", token_to_string(tok));
     }if(tok->type == TOKEN_EOF){
